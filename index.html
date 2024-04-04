@@ -3,45 +3,51 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Simple TODO List</title>
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    <div id="todo-app">
-      <!-- Todo list heading -->
-      <h1>Simple TO-DO List</h1>
-      <ul id="todo-list">
-        <!--  Todo items will  be shown here -->
-      </ul>
-      <!-- Input fields for todo -->
-      <label>Title</label>
-      <input type="text" id="new-todo-title" />
-      <label>Description</label>
-      <input type="text" id="new-todo-description" />
-      <button id="add-todo">Add to list</button>
+    <h1>Simple todo list</h1>
+
+    <div class="todos">
+      <div class="todoList">
+        <div class="checkBox">
+          <input type="checkbox" />
+        </div>
+        <div class="todoItem">
+          <div class="todoTitle">#1: Item #1</div>
+          <div class="todoDisc">Description for item</div>
+        </div>
+      </div>
+
+      <div class="todoList">
+        <div class="checkBox">
+          <input type="checkbox" />
+        </div>
+        <div class="todoItem">
+          <div class="todoTitle">#2: Item #2</div>
+          <div class="todoDisc">Description for item</div>
+        </div>
+      </div>
+
+      <div class="todoList">
+        <div class="checkBox">
+          <input type="checkbox" />
+        </div>
+        <div class="todoItem" id="li-3">
+          <div class="todoTitle">#3: Item #3</div>
+          <div class="todoDisc">Description for item</div>
+        </div>
+      </div>
     </div>
 
-    <script>
-      var data = [
-        { id: 1, title: "Learn JavaScript", completed: true },
-        { id: 2, title: "Learn React", completed: false },
-        { id: 3, title: "Build a simple project", completed: false },
-      ];
-      // Function to update todo display
-      function updateDisplay() {
-        var todoList = document.getElementById("todo-list");
-        todoList.innerHTML = "";
-        data.forEach(function (item) {
-          var li = document.createElement("li");
-          li.className = "todo-item" + (item.completed ? " completed" : "");
-          li.innerHTML = `
-    <input type="checkbox" ${item.completed ? "checked" : ""}>
-    <label>#${item.id}:${item.title}#</label>
-`;
-          todoList.appendChild(li);
-        });
-      }
-      updateDisplay();
-    </script>
+    <div class="createTodo">
+      <label for="title">Title</label>
+      <input type="text" id="title" />
+     <label for="Description">Description</label>
+      <input type="text" id="Description" />
+      <button>Add to list</button>
+    </div>
   </body>
 </html>

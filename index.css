@@ -1,88 +1,64 @@
-body {
-    font-family: Arial, sans-serif;
-    background: #f5f5f5;
-}
 
-#todo-app {
-    max-width: 600px;
-    margin: auto;
-    text-align: center;
-    background: white;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
 
-#todo-list {
-    list-style-type: none;
-    padding: 0;
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
 }
-
-.todo-item {
-    background-color: #FFEA9E;;
-    border: 1px solid #ddd;
-    padding: 10px;
-    margin-bottom: 5px;
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-}
-
-.todo-item:nth-child(odd) {
-    background-color: #FCA3A3;
-}
-
-.todo-item label {
-    flex-grow: 1;
-    padding-left: 5px;
-}
-
-.todo-item.completed label {
-    text-decoration: line-through;
-    color: #888;
-}
-
-.todo-item input[type="checkbox"] {
-    margin-right: 10px;
-}
-
-#new-todo-title, #new-todo-description {
-    margin: 10px 0;
-    width: calc(100% - 50px);
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-  
-}
-
-#add-todo {
-    padding: 10px 20px;
-    background-color: #5cb85c;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
-    margin-top: 10px;
-}
-
-label {
-    text-align: start;
-    display: block; 
-    padding-left: 3%;
-    font-family: Inter;
-    font-size: 14px;
+h1{
+    font-family: "Inter";
     font-weight: 400;
-    line-height: 19.52px;
-    text-align: left;
+    margin: 1rem 0px 0px 1rem;
+}
+.todos {
+    margin: 1rem 0px 0px 1rem;
 }
 
-#todo-list .todo-item {
-    justify-content: flex-start;
+.todoList {
+    display: flex;
+    gap: 15px;
+    background-color: rgb(244, 244, 134);
+    padding: 10px;
+    min-width: 250px;
+    max-width: 400px;
+}
+.todoList:nth-child(odd){
+    background-color: rgb(251, 102, 102);
+}
+.checkBox {
+    display: flex;
+    align-items: center;
 }
 
-#todo-list {
-    text-align: left;
+.todoTitle {
+    font-weight: bold;
+}
+.createTodo {
+    margin: 1rem 0px 0px 1rem;
+    display: flex;
+    flex-direction: column;
+}
+.createTodo input{
+    max-width: 205px;
+    max-height: 22px;
+    margin:10px 0px 10px 0px;
 }
 
-#add-todo:hover {
-    background-color: #4cae4c;
+.createTodo button {
+   
+    max-width:75px ;
+    max-height: 22px;
+    margin-top: 8px;
+    border: 2px solid gray;
+    border-radius: 2.5px;
+    padding: 3px,8px,3px,8px;
+}
+#li-3 .todoTitle{
+    text-decoration: line-through;
+}
+label{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 13.33px;
+    line-height: 15.33px;
 }
