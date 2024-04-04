@@ -67,4 +67,4 @@ Now that you are aware of how to interact with the DOM and process data using JS
 - The todo list items should be stored in local storage. **Delete the data variable** and load the todo list items from localstorage instead. 
   - Wondering how to load/store arrays in local storage? https://stackoverflow.com/questions/3357553/how-do-i-store-an-array-in-localstorage 
   - When a new item is added into the todo list, it should be **both** shown in the UI and saved to local storage
-  - When I reload the page, the new items added to the list should still show up.
+  - When I reload the page, the new items added to the list should still show up. 
