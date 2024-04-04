@@ -5,27 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Simple TODO List</title>
     <link rel="stylesheet" href="index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <div id="todo-app">
-      <!-- Todo list heading -->
-      <h1>Simple TO-DO List</h1>
+    <div id="todo-app">   
+      <div class="display-part">
+          <!-- Todo list heading -->
+      <h1>Simple To-Do List</h1>
       <ul id="todo-list">
         <!--  Todo items will  be shown here -->
       </ul>
       <!-- Input fields for todo -->
-      <label>Title</label>
-      <input type="text" id="new-todo-title" />
-      <label>Description</label>
-      <input type="text" id="new-todo-description" />
-      <button id="add-todo">Add to list</button>
+      </div>
+      <div class="input-part">
+        <label>Title</label>
+        <input type="text" id="new-todo-title" />
+        <label>Description</label>
+        <input type="text" id="new-todo-description" />
+        <button id="add-todo">Add to list</button>
+      </div>
+    
+ 
     </div>
 
     <script>
       var data = [
-        { id: 1, title: "Learn JavaScript", completed: true },
-        { id: 2, title: "Learn React", completed: false },
-        { id: 3, title: "Build a simple project", completed: false },
+        {
+          id: 1,
+          title: "Learn JavaScript",
+          description: "Description content",
+          completed: true,
+        },
+        {
+          id: 2,
+          title: "Learn React",
+          description: "Description content",
+          completed: false,
+        },
+        {
+          id: 3,
+          title: "Build a simple project",
+          description: "Description content",
+          completed: false,
+        },
       ];
       // Function to update todo display
       function updateDisplay() {
@@ -35,8 +68,14 @@
           var li = document.createElement("li");
           li.className = "todo-item" + (item.completed ? " completed" : "");
           li.innerHTML = `
-    <input type="checkbox" ${item.completed ? "checked" : ""}>
-    <label>#${item.id}:${item.title}#</label>
+          <div>
+            <input type="checkbox" ${item.completed ? "checked" : ""}>
+  </div>
+          <div>
+            <label>#${item.id}:${item.title}#</label>
+            <label>${item.description}</label></div>
+
+    
 `;
           todoList.appendChild(li);
         });
