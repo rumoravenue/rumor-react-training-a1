@@ -68,3 +68,26 @@ Now that you are aware of how to interact with the DOM and process data using JS
   - Wondering how to load/store arrays in local storage? https://stackoverflow.com/questions/3357553/how-do-i-store-an-array-in-localstorage 
   - When a new item is added into the todo list, it should be **both** shown in the UI and saved to local storage
   - When I reload the page, the new items added to the list should still show up.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
