@@ -1,27 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Simple TODO List</title>
-    <link rel="stylesheet" href="index.css">
-</head>
-<body>
-    <h1>Simple TODO list</h1>
-    <div id="todo-list">
-      <!-- Your code goes here (Part 1) -->
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <h1>Simple todo list</h1>
+
+    <div class="todos">
+      <div class="todoList">
+        <div class="checkBox">
+          <input type="checkbox" />
+        </div>
+        <div class="todoItem">
+          <div class="todoTitle">#1: Item #1</div>
+          <div class="todoDisc">Description for item</div>
+        </div>
+      </div>
+
+      <div class="todoList">
+        <div class="checkBox">
+          <input type="checkbox" />
+        </div>
+        <div class="todoItem">
+          <div class="todoTitle">#2: Item #2</div>
+          <div class="todoDisc">Description for item</div>
+        </div>
+      </div>
+
+      <div class="todoList">
+        <div class="checkBox">
+          <input type="checkbox" />
+        </div>
+        <div class="todoItem" id="li-3">
+          <div class="todoTitle">#3: Item #3</div>
+          <div class="todoDisc">Description for item</div>
+        </div>
+      </div>
     </div>
-    <script>
-      // Your JS goes here (Part 2)
-      
-      // This data array contains the initial 3 todo items
-      // When you are done with writing the code for processing the list
-      // Remove this and store the data in localstorage
-      var data = [
-        { id: 1, title: 'Learn JavaScript', completed: true },
-        { id: 2, title: 'Learn React', completed: false },
-        { id: 3, title: 'Build a simple project', completed: false }
-      ]
-    </script>
-</body>
+
+    <div class="createTodo">
+      <label for="title">Title</label>
+      <input type="text" id="title" />
+     <label for="Description">Description</label>
+      <input type="text" id="Description" />
+      <button>Add to list</button>
+    </div>
+  </body>
 </html>
