@@ -1,27 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple TODO List</title>
-    <link rel="stylesheet" href="index.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="index.css">
+  <title>Simple TODO List</title>
 </head>
 <body>
-    <h1>Simple TODO list</h1>
-    <div id="todo-list">
-      <!-- Your code goes here (Part 1) -->
-    </div>
-    <script>
-      // Your JS goes here (Part 2)
-      
-      // This data array contains the initial 3 todo items
-      // When you are done with writing the code for processing the list
-      // Remove this and store the data in localstorage
-      var data = [
-        { id: 1, title: 'Learn JavaScript', completed: true },
-        { id: 2, title: 'Learn React', completed: false },
-        { id: 3, title: 'Build a simple project', completed: false }
-      ]
-    </script>
+  <h1>Simple todo list</h1>
+
+  <div class="todos">
+  </div>
+
+  <div class="createTodo">
+    <label for="title">Title</label>
+    <input type="text" id="title" />
+    <label for="Description">Description</label>
+    <input type="text" id="Description" />
+    <button>Add to list</button>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const addButton = document.querySelector('.createTodo button');
+      const titleInput = document.getElementById('title');
+      const descriptionInput = document.getElementById('Description');
+      const todosContainer = document.querySelector('.todos');
+      let todos = [];
+
+      // Load todos from localStorage if available
+      if (localStorage.getItem('todos')) {
+        todos = JSON.parse(localStorage.getItem('todos'));
+        renderTodos();
+      }
+
+      addButton.addEventListener('click', function() {
+        const title = titleInput.value.trim();
+        const description = descriptionInput.value.trim();
+
+        if (title !== '') {
+          todos.push({ title, description, checked: false });
+          saveTodosToLocalStorage();
+          renderTodos();
+          // Clear input fields after adding todo
+          titleInput.value = '';
+          descriptionInput.value = '';
+        } else {
+          alert('Please enter a title for the todo item.');
+        }
+      });
+
+      function renderTodos() {
+        todosContainer.innerHTML = '';
+        todos.forEach((todo, index) => {
+          const todoItem = createTodoItem(todo.title, todo.description, todo.checked, index);
+          todosContainer.appendChild(todoItem);
+        });
+      }
+
+      function createTodoItem(title, description, checked, index) {
+        const todoList = document.createElement('div');
+        todoList.classList.add('todoList');
+
+        const checkBox = document.createElement('div');
+        checkBox.classList.add('checkBox');
+        const checkboxInput = document.createElement('input');
+        checkboxInput.type = 'checkbox';
+        checkboxInput.checked = checked;
+        checkBox.appendChild(checkboxInput);
+
+        const todoItem = document.createElement('div');
+        todoItem.classList.add('todoItem');
+        const todoTitle = document.createElement('div');
+        todoTitle.classList.add('todoTitle');
+        todoTitle.textContent = title;
+        todoTitle.style.textDecoration = checked ? 'line-through' : 'none';
+        const todoDisc = document.createElement('div');
+        todoDisc.classList.add('todoDisc');
+        todoDisc.textContent = description;
+
+        checkboxInput.addEventListener('change', function() {
+          todos[index].checked = this.checked;
+          saveTodosToLocalStorage();
+          renderTodos();
+        });
+
+        todoItem.appendChild(todoTitle);
+        todoItem.appendChild(todoDisc);
+
+        todoList.appendChild(checkBox);
+        todoList.appendChild(todoItem);
+
+        return todoList;
+      }
+
+      function saveTodosToLocalStorage() {
+        localStorage.setItem('todos', JSON.stringify(todos));
+      }
+    });
+  </script>
 </body>
 </html>
