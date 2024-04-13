@@ -67,16 +67,30 @@
           var li = document.createElement("li");
           li.className = "todo-item" + (item.completed ? " completed" : "");
           li.innerHTML = `
-          <div>
-            <input type="checkbox"  ${item.completed ? "checked" : ""} >
-          </div>
-          <div>
-            <label>#${item.id}:${item.title}#</label>
-            <label>${item.description}</label>            
-          </div>
-          `;
+            <div>
+                <input type="checkbox" class="check" ${
+                  item.completed ? "checked" : ""
+                }>
+            </div>
+            <div>
+                <label class="title">#${item.id}:${item.title}#</label>
+                <label>${item.description}</label>            
+            </div>
+        `;
 
           todoList.appendChild(li);
+
+          // Add event listener to each checkbox
+          let check = li.querySelector(".check");
+          let title = li.querySelector(".title");
+
+          check.addEventListener("change", function () {
+            if (this.checked) {
+              title.style.textDecoration = "line-through";
+            } else {
+              title.style.textDecoration = "none";
+            }
+          });
         });
       }
 
@@ -113,13 +127,10 @@
 
       // Display  the data
       window.onload = function () {
-      var initialData = getDataFromLocalStorage();
-      console.log(initialData);
-      updateDisplay(initialData);
+        var initialData = getDataFromLocalStorage();
+        console.log(initialData);
+        updateDisplay(initialData);
       };
-
-     
-      
     </script>
   </body>
 </html>
