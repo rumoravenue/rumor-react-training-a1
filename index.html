@@ -1,27 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Simple TODO List</title>
-    <link rel="stylesheet" href="index.css">
-</head>
-<body>
-    <h1>Simple TODO list</h1>
-    <div id="todo-list">
-      <!-- Your code goes here (Part 1) -->
+    <link rel="stylesheet" href="index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="todo-app">
+      <div class="display-part">
+        <!-- Todo list heading -->
+        <h1>Simple To-Do List</h1>
+        <ul id="todo-list">
+          <!--  Todo items will  be shown here -->
+        </ul>
+        <!-- Input fields for todo -->
+      </div>
+      <div class="input-part">
+        <label>Title</label>
+        <input type="text" id="new-todo-title" />
+        <label>Description</label>
+        <input type="text" id="new-todo-description" />
+        <button id="add-todo">Add to list</button>
+      </div>
     </div>
+
     <script>
-      // Your JS goes here (Part 2)
-      
-      // This data array contains the initial 3 todo items
-      // When you are done with writing the code for processing the list
-      // Remove this and store the data in localstorage
       var data = [
-        { id: 1, title: 'Learn JavaScript', completed: true },
-        { id: 2, title: 'Learn React', completed: false },
-        { id: 3, title: 'Build a simple project', completed: false }
-      ]
+        {
+          id: 1,
+          title: "Learn JavaScript",
+          description: "Description content",
+          completed: false,
+        },
+        {
+          id: 2,
+          title: "Learn React",
+          description: "Description content",
+          completed: false,
+        },
+        {
+          id: 3,
+          title: "Build a simple project",
+          description: "Description content",
+          completed: false,
+        },
+      ];
+
+      // Function to update todo display
+      function updateDisplay(data) {
+        var todoList = document.getElementById("todo-list");
+        todoList.innerHTML = "";
+        data.forEach(function (item) {
+          var li = document.createElement("li");
+          li.className = "todo-item" + (item.completed ? " completed" : "");
+          li.innerHTML = `
+            <div>
+                <input type="checkbox" class="check" ${
+                  item.completed ? "checked" : ""
+                }>
+            </div>
+            <div>
+                <label class="title">#${item.id}:${item.title}#</label>
+                <label>${item.description}</label>            
+            </div>
+        `;
+
+          todoList.appendChild(li);
+
+          // Add event listener to each checkbox
+          let check = li.querySelector(".check");
+          let title = li.querySelector(".title");
+
+          check.addEventListener("change", function () {
+            if (this.checked) {
+              title.style.textDecoration = "line-through";
+            } else {
+              title.style.textDecoration = "none";
+            }
+          });
+        });
+      }
+
+      // Function to add new TODO item
+      function addTodo() {
+        var newTitle = document.getElementById("new-todo-title").value;
+        var newDesc = document.getElementById("new-todo-description").value;
+        var newId = data.length + 1;
+        data.push({
+          id: newId,
+          title: newTitle,
+          description: newDesc,
+          completed: false,
+        });
+
+        saveDataToLocalStorage(data);
+        updateDisplay(data);
+      }
+
+      // Function to save data to Local Storage
+      function saveDataToLocalStorage(data) {
+        localStorage.setItem("todoData", JSON.stringify(data));
+      }
+
+      // Function to get data to Local Storage
+      function getDataFromLocalStorage() {
+        var data = localStorage.getItem("todoData");
+        return data ? JSON.parse(data) : [];
+      }
+
+      // Add click event to the button
+      var addButton = document.getElementById("add-todo");
+      addButton.addEventListener("click", addTodo);
+
+      // Display  the data
+      window.onload = function () {
+        var initialData = getDataFromLocalStorage();
+        console.log(initialData);
+        updateDisplay(initialData);
+      };
     </script>
-</body>
+  </body>
 </html>
