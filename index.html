@@ -20,28 +20,6 @@
       <input type="text" id="new-todo-description" />
       <button id="add-todo">Add to list</button>
     </div>
-
-    <script>
-      var data = [
-        { id: 1, title: "Learn JavaScript", completed: true },
-        { id: 2, title: "Learn React", completed: false },
-        { id: 3, title: "Build a simple project", completed: false },
-      ];
-      // Function to update todo display
-      function updateDisplay() {
-        var todoList = document.getElementById("todo-list");
-        todoList.innerHTML = "";
-        data.forEach(function (item) {
-          var li = document.createElement("li");
-          li.className = "todo-item" + (item.completed ? " completed" : "");
-          li.innerHTML = `
-    <input type="checkbox" ${item.completed ? "checked" : ""}>
-    <label>#${item.id}:${item.title}#</label>
-`;
-          todoList.appendChild(li);
-        });
-      }
-      updateDisplay();
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
