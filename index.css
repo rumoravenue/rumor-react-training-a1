@@ -1,0 +1,43 @@
+body {
+    font-family: "Inter", sans-serif;
+}
+
+h1{
+    font-weight: 400;
+    font-size: 48px;
+}
+
+.description{
+    font-size: 10px;
+    font-style: italic;
+}
+
+button{
+    display: block;
+    margin-top: 16px;
+    width: 75px;
+    height: 22px;
+    Padding: 3px, 8px;
+}
+
+#container1{
+    background-color: #FCA3A3;
+    display: flex;
+    align-items: center;
+    width: 385px;
+
+}
+
+#container2{
+    background-color: #FFEA9E;
+    
+}
+
+[type="checkbox"] {
+    accent-color: #FCA3A3;
+}
+
+[type="text"] {
+    width: 205px;
+    height: 22px;
+}
