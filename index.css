@@ -4,7 +4,8 @@ body {
 
 h1{
     font-weight: 400;
-    font-size: 48px;
+    font-size: 50px;
+    margin-bottom: 10px;
 }
 
 .description{
@@ -15,9 +16,11 @@ h1{
 button{
     display: block;
     margin-top: 16px;
-    width: 75px;
-    height: 22px;
+    width: 85px;
+    height: 25px;
     Padding: 3px, 8px;
+    font-size: 15px;
+    font-family: "Arimo", sans-serif;
 }
 
 .container1{
@@ -25,15 +28,9 @@ button{
     display: flex;
     align-items: center;
     width: 385px;
-    height: 41px;
+    height: 30px;
     padding: 10px;
-}
-.text{
-    margin-left: 10px;
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 10px;
-    
+    font-size: 12px;
 }
 
 .container2{
@@ -41,15 +38,17 @@ button{
     display: flex;
     align-items: center;
     width: 385px;
-    height: 41px;
+    height: 30px;
     padding: 10px;
+    font-size: 12px;
 }
 .container3{
     display: flex;
     align-items: center;
     width: 385px;
-    height: 41px;
+    height: 30px;
     padding: 10px;
+    font-size: 12px;
 }
 
 .container1 > [type="checkbox"] {
@@ -63,4 +62,10 @@ button{
 [type="text"] {
     width: 205px;
     height: 22px;
+}
+#input-text{
+ font-family: "Arimo", sans-serif;
+}
+.text{
+    margin-left: 10px;
 }
