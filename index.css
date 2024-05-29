@@ -20,21 +20,44 @@ button{
     Padding: 3px, 8px;
 }
 
-#container1{
+.container1{
     background-color: #FCA3A3;
     display: flex;
     align-items: center;
     width: 385px;
-
+    height: 41px;
+    padding: 10px;
 }
-
-#container2{
-    background-color: #FFEA9E;
+.text{
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 10px;
     
 }
 
-[type="checkbox"] {
+.container2{
+    background-color: #FFEA9E;
+    display: flex;
+    align-items: center;
+    width: 385px;
+    height: 41px;
+    padding: 10px;
+}
+.container3{
+    display: flex;
+    align-items: center;
+    width: 385px;
+    height: 41px;
+    padding: 10px;
+}
+
+.container1 > [type="checkbox"] {
     accent-color: #FCA3A3;
+}
+
+.container2 > [type="checkbox"] {
+    accent-color: #FFEA9E;
 }
 
 [type="text"] {
